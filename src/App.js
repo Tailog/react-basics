@@ -3,6 +3,7 @@ import React from 'react';
 import {CardList} from './components/card-list/CardList'
 
 import './App.css';
+import { Search } from './components/search/Search';
 
 class App extends React.Component {
   constructor() {
@@ -21,7 +22,8 @@ class App extends React.Component {
           name: "Ayse",
           id: 27
         }
-      ]
+      ],
+      searchField : '',
     };
   }
   /**
@@ -50,9 +52,22 @@ class App extends React.Component {
   // Rendu Dynamique avec la méthode map
   // Ajout de Children Props dans le composants CardList
   render() {
+    /**
+    * Décompostion, autre facon d'écrire
+    * const users = this.state.users
+    * const searchField = this.state.searchField
+    **/
+    const { users, searchField } = this.state;
+    const filteredUsers = users.filter((user)=>
+      user.name.toLowerCase().includes(searchField.toLowerCase())
+    );
     return (
       <div className="App">
-        <CardList users={this.state.users}/>
+        <Search 
+          placeholder="Search User"
+          handleChange = {(e)=>this.setState({searchField: e.target.value})}
+        />
+        <CardList users={filteredUsers} />
       </div>
     );
   }
