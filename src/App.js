@@ -21,6 +21,29 @@ class App extends React.Component {
       ]
     };
   }
+  /**
+   * Faire une requête à une API grâce à https://jsonplaceholder.typicode.com/
+   * Sans Axios => fonction de javascript de base
+   * componentDidMount est disponible car nous sommes dans un composant de type class
+  **/
+  componentDidMount(){
+    //Fetch les datas
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(
+        // On transforme la réponse de l'API en JSON
+        (response) => response.json()
+      )
+      .then(
+        //On met à jour le state avec le tableau reçu du JSON
+        (users => this.setState((prevState)=>{
+          return {
+            // Je créer un nouveaux tableaux contenant tout les élément de mon state précedent et du tableau d'user reçu
+            users: [...prevState.users,...users]
+          }
+        }))
+      );
+  }
+
   // Rendu Dynamique avec la méthode map
   render() {
     return (
