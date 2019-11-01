@@ -1,4 +1,7 @@
 import React from 'react';
+
+import {CardList} from './components/card-list/CardList'
+
 import './App.css';
 
 class App extends React.Component {
@@ -8,15 +11,15 @@ class App extends React.Component {
       users: [
         {
           name: "Pierre",
-          id: 1
+          id: 25
         },
         {
           name: "Jo",
-          id: 2
+          id: 26
         },
         {
           name: "Ayse",
-          id: 3
+          id: 27
         }
       ]
     };
@@ -45,12 +48,15 @@ class App extends React.Component {
   }
 
   // Rendu Dynamique avec la méthode map
+  // Ajout de Children Props dans le composants CardList
   render() {
     return (
-      <div>
-        {this.state.users.map(user => {
-          return <h1 key={user.id}>{user.name}</h1>;
-        })}
+      <div className="App">
+        <CardList>
+          {this.state.users.map(user => {
+            return <h1 key={user.id}>{user.name}</h1>;
+          })}
+        </CardList>
       </div>
     );
   }
