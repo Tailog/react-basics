@@ -49,6 +49,13 @@ class App extends React.Component {
       );
   }
 
+  /**
+   * Search Function
+   */
+  handleChange = (e) =>{
+    this.setState({ searchField: e.target.value });
+  }
+
   // Rendu Dynamique avec la méthode map
   // Ajout de Children Props dans le composants CardList
   render() {
@@ -65,7 +72,7 @@ class App extends React.Component {
       <div className="App">
         <Search 
           placeholder="Search User"
-          handleChange = {(e)=>this.setState({searchField: e.target.value})}
+          handleChange = {this.handleChange}
         />
         <CardList users={filteredUsers} />
       </div>
