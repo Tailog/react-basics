@@ -6,7 +6,7 @@ export const Search = ({ placeholder, handleChange}) =>{
   return (
     <div>
       <input
-        className="search" 
+        className="search-box" 
         type="search"
         placeholder ={placeholder}
         onChange = {handleChange}

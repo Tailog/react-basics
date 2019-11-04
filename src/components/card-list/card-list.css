@@ -2,6 +2,8 @@
   width: 85vw;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr; /*Découpe la tazille maximale en 4 fragements de même taille */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
 }
+
+

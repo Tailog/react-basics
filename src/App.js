@@ -1,9 +1,9 @@
 import React from 'react';
 
 import {CardList} from './components/card-list/CardList'
+import { Search } from './components/search/Search';
 
 import './App.css';
-import { Search } from './components/search/Search';
 
 class App extends React.Component {
   constructor() {
@@ -70,6 +70,7 @@ class App extends React.Component {
     );
     return (
       <div className="App">
+        <h1>My Users</h1>
         <Search 
           placeholder="Search User"
           handleChange = {this.handleChange}
